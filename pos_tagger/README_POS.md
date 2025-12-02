@@ -29,7 +29,7 @@ This implementation includes:
   - Confusion matrix
   - Emission distributions (“can”, “like”)
 
-This module corresponds to the 7–9 page POS Tagging section of the project *Do Probabilities Suffice?*.
+This module corresponds to the 10 pages POS Tagging section of the project *Do Probabilities Suffice?*.
 
 ---
 
@@ -149,4 +149,5 @@ This section supports the broader project question: *Do probabilities suffice?*
 ```
 
 ---
+
 
