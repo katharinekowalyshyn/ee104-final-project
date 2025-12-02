@@ -79,28 +79,64 @@ python spell-check.py --train datasets/birbeck_large_train.txt --test datasets/b
 ## 2. HMM Part-of-Speech Tagger
 
 ### Overview
+This module implements a probabilistic **Part-of-Speech (POS) tagger** using a **Hidden Markov Model (HMM)** trained on the Universal Dependencies English Web Treebank (UD-EWT).  
+Given a sentence, the model assigns a grammatical tag (e.g., NOUN, VERB, ADP) to each word by estimating:
 
-The POS tagger uses a **Hidden Markov Model** to assign grammatical tags (noun, verb, adjective, etc.) to words in a sentence.
+- Transition probabilities: P(tagᵢ | tagᵢ₋₁)  
+- Emission probabilities: P(wordᵢ | tagᵢ)
+
+A strong **Most-Frequent-Tag baseline** is also included for comparison.
+
+---
 
 ### How It Works
 
-#### Components:
+#### 🧠 Components
+- **Training**
+  - Reads UD-EWT `.conllu` files  
+  - Counts tag transitions and tag-word emissions  
+  - Applies add-α Laplace smoothing  
+  - Handles rare words using an `<UNK>` token  
+  - Stores probabilities in log-space for numerical stability  
 
-1. **Training**
-   
+- **Decoding (Viterbi Algorithm)**
+  - Computes the most likely sequence of POS tags  
+  - Dynamic programming recurrence over 17 UPOS tags  
+  - Uses backpointers to reconstruct the optimal tag path  
 
-2. **Decoding (Viterbi Algorithm)**
-   
+- **Features**
+  - Rare/unknown word handling  
+  - Transition matrix visualization  
+  - Confusion matrix and per-tag accuracy  
+  - Emission distribution plots for ambiguous words  
+  - Average log-likelihood calculation  
 
-3. **Features**
-   
+---
 
-### Usage
+### 📊 Performance Summary
+- **Baseline accuracy:** 86.20%  
+- **HMM tagger accuracy:** 89.32%  
+- Performs extremely well on unambiguous categories (DET, PRON, PUNCT)  
+- Major confusions: PROPN vs NOUN, VERB vs AUX  
+- Handles ambiguous words like *can* and *like* in a probabilistic way  
 
+---
+
+### 📁 Files
+Located in: `pos_tagger/`
+
+- `HMM_POS_tagger.py` — full implementation  
+- `README_POS.md` — detailed documentation for this module  
+- `figures/` — transition matrix, confusion matrix, emission plots, HMM diagram  
+
+---
+
+### ▶ Usage
+
+#### Run on the included UD dataset
 ```bash
-cd pos-tagger
-python pos-tagger.py [input_file]
-```
+cd pos_tagger
+python HMM_POS_tagger.py
 
 ---
 
