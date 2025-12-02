@@ -170,7 +170,17 @@ ee104-final-project/
 │   ├── figures/                 # Generated visualizations
 │   └── spell_checker_results.json
 ├── pos-tagger/
-│   └── pos-tagger.py            # HMM POS tagger
+│   ├── HMM_POS_tagger.py # Hidden Markov Model POS tagger
+│   ├── README_POS.md # Documentation for this module
+│   ├── data/
+│   │   ├── en_ewt-ud-train.conllu
+│   │   ├── en_ewt-ud-dev.conllu
+│   │   └── en_ewt-ud-test.conllu
+│   └── figures/
+│       ├── transition_matrix.png
+│       ├── confusion_matrix.png
+│       ├── emission_can.png
+│       └── emission_like.png
 ├── grammarly-analysis/
 │   └── grammarly_analysis.py    # Writing analysis tool
 └── README.md
