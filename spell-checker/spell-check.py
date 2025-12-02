@@ -23,8 +23,6 @@ import argparse
 from collections import defaultdict, Counter
 from typing import List, Tuple, Set, Optional
 import time
-
-# Import functions from norvig-spell.py
 sys.path.insert(0, os.path.dirname(__file__))
 import importlib.util
 spec = importlib.util.spec_from_file_location("norvig_spell", "norvig-spell.py")
@@ -35,11 +33,8 @@ spec.loader.exec_module(norvig_spell)
 edits1 = norvig_spell.edits1
 edits2 = norvig_spell.edits2
 BirkbeckTestset = norvig_spell.BirkbeckTestset
-
-# Get base WORDS dictionary from big.txt
 BASE_WORDS = norvig_spell.WORDS
 
-# Try to import matplotlib
 try:
     import matplotlib.pyplot as plt
     import numpy as np
@@ -47,19 +42,10 @@ try:
 except ImportError:
     HAS_MATPLOTLIB = False
 
-# ============================================================================
-# CONSTANTS
-# ============================================================================
-
 MAX_EDIT_DISTANCE = 2
 NGRAM_SIMILARITY_THRESHOLD = 0.3
 LENGTH_TOLERANCE = 3
-
 MIN_PROB = 1e-10
-
-# ============================================================================
-# VOCABULARY BUILDING - THE KEY FIX
-# ============================================================================
 
 def build_vocabulary(base_words: Counter, 
                      train_tests: List[Tuple[str, str]],
@@ -315,7 +301,7 @@ class ErrorModel:
         
         # Normalize deletion probabilities
         if self.total_deletions > 0:
-        for c in chars:
+            for c in chars:
                 count = self.deletion_counts[c]
                 self.deletion_counts[c] = (count + alpha) / (self.total_deletions + alpha * 26)
         
@@ -590,7 +576,7 @@ def spell_check(typo: str, language_model: LanguageModel, error_model: ErrorMode
         normalized = [(word, score / total_score) for word, score in scores]
         return normalized[:top_k]
     else:
-    return scores[:top_k]
+        return scores[:top_k]
 
 # ============================================================================
 # EVALUATION
