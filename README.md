@@ -133,11 +133,10 @@ Located in: `pos_tagger/`
 
 ### ▶ Usage
 
-#### Run on the included UD dataset
 ```bash
 cd pos_tagger
 python HMM_POS_tagger.py
-
+```
 ---
 
 ## 3. Grammarly-Style Writing Analysis
