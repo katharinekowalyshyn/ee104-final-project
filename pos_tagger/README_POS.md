@@ -39,7 +39,7 @@ This module corresponds to the 10 pages POS Tagging section of the project *Do P
 /pos_tagger/
 │
 ├── HMM_POS_tagger.py          # Main HMM implementation
-├── README.md                  # This file
+├── README.md                  
 │
 ├── data/
 │   ├── en_ewt-ud-train.conllu
@@ -149,5 +149,6 @@ This section supports the broader project question: *Do probabilities suffice?*
 ```
 
 ---
+
 
 
