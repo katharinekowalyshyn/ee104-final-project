@@ -91,7 +91,7 @@ A strong **Most-Frequent-Tag baseline** is also included for comparison.
 
 ### How It Works
 
-#### 🧠 Components
+#### Components
 - **Training**
   - Reads UD-EWT `.conllu` files  
   - Counts tag transitions and tag-word emissions  
@@ -113,7 +113,7 @@ A strong **Most-Frequent-Tag baseline** is also included for comparison.
 
 ---
 
-### 📊 Performance Summary
+### Performance Summary
 - **Baseline accuracy:** 86.20%  
 - **HMM tagger accuracy:** 89.32%  
 - Performs extremely well on unambiguous categories (DET, PRON, PUNCT)  
@@ -122,7 +122,7 @@ A strong **Most-Frequent-Tag baseline** is also included for comparison.
 
 ---
 
-### 📁 Files
+### Files
 Located in: `pos_tagger/`
 
 - `HMM_POS_tagger.py` — full implementation  
@@ -131,7 +131,7 @@ Located in: `pos_tagger/`
 
 ---
 
-### ▶ Usage
+### Usage
 
 ```bash
 cd pos_tagger
@@ -199,35 +199,6 @@ Install dependencies:
 ```bash
 pip install numpy matplotlib
 ```
-
----
-
-## Key Algorithms & Techniques
-
-### Spell Checker
-- **Noisy Channel Model**: Bayes' theorem for error correction
-- **Dynamic Programming**: Optimal alignment for error extraction
-- **Confusion Matrices**: Empirical error probability learning
-- **Edit Distance**: Levenshtein distance for candidate generation
-
-### POS Tagger
-
-### Grammarly Analysis
-
----
-
-## Results & Evaluation
-
-### Spell Checker Results
-- Achieves **38.6% Top-1 accuracy** on 6,000 test pairs
-- **54.3% Top-5 accuracy** (correct word in top 5 suggestions)
-- Only **3.8% unknown words** (down from ~20% with vocabulary improvements)
-- Handles multi-edit errors effectively (64% of test cases)
-
-### Evaluation Metrics
-- **Accuracy**: Top-1, Top-3, Top-5 correction rates
-- **Error Analysis**: Unknown words, valid misspellings, wrong candidates
-- **Performance**: Processing time and throughput
 
 ---
 
